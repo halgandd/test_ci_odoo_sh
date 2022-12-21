@@ -1,13 +1,9 @@
 name: Odoo.sh Get build status
 on: [push]
-env:
-  ODOOSH_PROD_INSTANCE_ID: 6709388
-  ODOOSH_PROD_INSTANCE_NAME: halgandd-test-ci-odoo-sh-prod-6709388
-  ODOOSH_STAGING_INSTANCE_ID: 6709823
-  ODOOSH_STAGING_INSTANCE_NAME: halgandd-test-ci-odoo-sh-staging-6709823
 jobs:
   Demo:
     runs-on: ubuntu-latest
+    environnement: ${GITHUB_REF##*/}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -23,6 +19,7 @@ jobs:
 
   Odoo-SH-Prepare-SSH:
     runs-on: ubuntu-latest
+    environnement: ${GITHUB_REF##*/}
     steps:
       #ssh-keygen -q -N "" -o -f ./github.private.key -t rsa -b 2048 -C "odoo@odoo.sh"
       - run: mkdir -p ~/.ssh
@@ -32,5 +29,6 @@ jobs:
   Odoo-SH-Update-All:
     needs: Odoo-SH-Prepare-SSH
     runs-on: ubuntu-latest
+    environnement: ${GITHUB_REF##*/}
     steps:
       - run: ssh ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
