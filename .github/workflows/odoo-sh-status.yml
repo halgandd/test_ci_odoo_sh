@@ -1,8 +1,10 @@
 name: Odoo.sh Get build status
 on: [push]
 env:
-  ODOOSH_PROD_INSTANCE: halgandd-test-ci-odoo-sh-prod-6709388
-  ODOOSH_STAGING_INSTANCE: halgandd-test-ci-odoo-sh-staging-6709823
+  ODOOSH_PROD_INSTANCE_ID: 6709388
+  ODOOSH_PROD_INSTANCE_NAME: halgandd-test-ci-odoo-sh-prod-6709388
+  ODOOSH_STAGING_INSTANCE_ID: 6709823
+  ODOOSH_STAGING_INSTANCE_NAME: halgandd-test-ci-odoo-sh-staging-6709823
 jobs:
   Odoo-SH-Get-Status:
     runs-on: ubuntu-latest
@@ -18,4 +20,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run : echo ${ODOOSH_STAGING_INSTANCE}
+      - run : ssh-keyscan -H ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
+      - run : ssh ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
