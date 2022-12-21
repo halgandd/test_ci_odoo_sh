@@ -11,7 +11,7 @@ for translation in translations:
                 _logger.info("\t- Translation %s already installed" % translation)
             else:
                 _logger.info("\t- Install %s Translation" % translation)
-                wizard_id = env['base.language.install'].create({'lang_ids': [(6, 0, lang['id'])]})
+                wizard_id = env['base.language.install'].create({'lang_ids': [(6, 0, [lang['id']])]})
                 wizard_id.lang_install()
 
 _logger.info("--- Translations installed ---")
