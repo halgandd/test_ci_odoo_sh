@@ -18,11 +18,11 @@ jobs:
 #      - run: echo "🍏 This job's status is ${{ job.status }}."
 
   Odoo-SH-Update-All:
+    environment: ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
       #ssh-keygen -q -N "" -o -f ./github.private.key -t rsa -b 2048 -C "odoo@odoo.sh"
-      - run: echo '${{ github.ref_name }}'
-#      - run: echo '${{ secret.ODOOSH_INSTANCE_NAME }}'
+      - run: echo '${{ secret.ODOOSH_INSTANCE_NAME }}'
 #      - run: mkdir -p ~/.ssh
 #      - run: ssh-keyscan -H ${ODOOSH_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
 #      - run: echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
