@@ -19,10 +19,10 @@ jobs:
 
   Odoo-SH-Update-All:
     runs-on: ubuntu-latest
-    environment: ${{ GITHUB_REF##*/ }}
+#    environment: ${{ github.ref##*/ }}
     steps:
       #ssh-keygen -q -N "" -o -f ./github.private.key -t rsa -b 2048 -C "odoo@odoo.sh"
-      - run: echo '${{ GITHUB_REF##*/ }}'
+      - run: echo '${{ github.ref##*/ }}'
       - run: echo '${{ secret.ODOOSH_INSTANCE_NAME }}'
 #      - run: mkdir -p ~/.ssh
 #      - run: ssh-keyscan -H ${ODOOSH_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
