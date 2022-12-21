@@ -3,7 +3,7 @@ on: [push]
 jobs:
   Demo:
     runs-on: ubuntu-latest
-    environnement: ${GITHUB_REF##*/}
+    environment: ${GITHUB_REF##*/}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -19,7 +19,7 @@ jobs:
 
   Odoo-SH-Prepare-SSH:
     runs-on: ubuntu-latest
-    environnement: ${GITHUB_REF##*/}
+    environment: ${GITHUB_REF##*/}
     steps:
       #ssh-keygen -q -N "" -o -f ./github.private.key -t rsa -b 2048 -C "odoo@odoo.sh"
       - run: mkdir -p ~/.ssh
@@ -29,6 +29,6 @@ jobs:
   Odoo-SH-Update-All:
     needs: Odoo-SH-Prepare-SSH
     runs-on: ubuntu-latest
-    environnement: ${GITHUB_REF##*/}
+    environment: ${GITHUB_REF##*/}
     steps:
       - run: ssh ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
