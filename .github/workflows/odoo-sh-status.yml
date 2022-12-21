@@ -1,5 +1,8 @@
 name: Odoo.sh Get build status
 on: [push]
+env:
+  ODOOSH_PROD_INSTANCE: halgandd-test-ci-odoo-sh-prod-6709388
+  ODOOSH_STAGING_INSTANCE: halgandd-test-ci-odoo-sh-staging-6709823
 jobs:
   Odoo-SH-Get-Status:
     runs-on: ubuntu-latest
@@ -15,3 +18,4 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run : echo ${ODOOSH_STAGING_INSTANCE}
