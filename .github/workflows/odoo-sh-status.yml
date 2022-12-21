@@ -30,6 +30,7 @@ jobs:
       - run: echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
 
   Odoo-SH-Update-All:
+    needs: Odoo-SH-Prepare-SSH
     runs-on: ubuntu-latest
     steps:
       - run: ssh ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
