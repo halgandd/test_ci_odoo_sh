@@ -20,5 +20,6 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run : ssh-keyscan -H ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
-      - run : ssh ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
+      - run: mkdir -p ~/.ssh
+      - run: ssh-keyscan -H ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
+      - run: ssh ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
