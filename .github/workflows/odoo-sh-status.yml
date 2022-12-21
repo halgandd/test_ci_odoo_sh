@@ -23,5 +23,5 @@ jobs:
       - run: mkdir -p ~/.ssh
         #ssh-keygen -q -N "" -o -f ./github.private.key -t rsa -b 2048 -C "odoo@odoo.sh"
       - run: ssh-keyscan -H ${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
-      - run: echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa
+      - run: echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
       - run: ssh ${ODOOSH_STAGING_INSTANCE_ID}@${ODOOSH_STAGING_INSTANCE_NAME}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
