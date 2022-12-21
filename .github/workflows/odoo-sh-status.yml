@@ -26,6 +26,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - run: ls -alstrh /github/
+      - run: ls -alstrh /home/runner/work/test_ci_odoo_sh/test_ci_odoo_sh
 #      - run: cat /github/workspace/.github/odoo_shell.py
 #      - run: ssh ${{ secrets.ODOOSH_INSTANCE_ID }}@${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
