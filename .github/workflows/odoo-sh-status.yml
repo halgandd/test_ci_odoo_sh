@@ -22,5 +22,6 @@ jobs:
       - run: mkdir -p ~/.ssh
       - run: ssh-keyscan -H ${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com >> ~/.ssh/known_hosts
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+      - run: ls -alstrh /github/
       - run: cat /github/workspace/.github/odoo_shell.py
 #      - run: ssh ${{ secrets.ODOOSH_INSTANCE_ID }}@${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
