@@ -3,7 +3,7 @@ _logger.info("=== Install translations ===")
 translations = [
     'fr_FR',
 ]
-langs = env['res.lang'].search_read([('code', 'in', translations)], ['code', 'active'])
+langs = env['res.lang'].with_context(active_test=False).search_read([('code', 'in', translations)], ['code', 'active'])
 for translation in translations:
     for lang in langs:
         if lang.code == translation:
