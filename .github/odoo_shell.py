@@ -1,8 +1,12 @@
-print("Install modules")
+_logger = odoo.api.logging.getLogger("Github")
+_logger.info("=== Install modules ===")
 modules = [
     'contact',
     'sale_management',
 ]
-env['ir.module.module'].search([('name','in',modules),('state','=','uninstalled')]).button_immediate_install()
+modules = env['ir.module.module'].search([('name','in',modules),('state','=','uninstalled')])
+for module in modules:
+    _logger.info("Install %s" % (module.name))
+    module.button_immediate_install()
 
-print("Modules Installed")
+_logger.info("--- Install modules ---")
