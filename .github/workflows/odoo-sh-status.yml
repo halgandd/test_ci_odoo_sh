@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #ssh-keygen -q -N "" -o -f ./github.private.key -t rsa -b 2048 -C "odoo@odoo.sh"
-      - run: echo '${{ github.ref }}'
+      - run: echo '${ GITHUB_REF }'
 #      - run: echo '${{ secret.ODOOSH_INSTANCE_NAME }}'
 #      - run: mkdir -p ~/.ssh
 #      - run: ssh-keyscan -H ${ODOOSH_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
