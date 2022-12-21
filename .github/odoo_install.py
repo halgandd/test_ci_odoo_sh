@@ -9,4 +9,4 @@ for module in modules:
     _logger.info("Install %s" % (module.name))
     module.button_immediate_install()
 
-_logger.info("--- Install modules ---")
+_logger.info("--- Modules installed ---")

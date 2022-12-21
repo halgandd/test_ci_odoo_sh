@@ -1,12 +1,17 @@
 _logger = odoo.api.logging.getLogger("Github")
-_logger.info("=== Install modules ===")
-modules = [
-    'contact',
-    'sale_management',
+_logger.info("=== Install translations ===")
+translations = [
+    'fr_FR',
 ]
-modules = env['ir.module.module'].search([('name','in',modules),('state','=','uninstalled')])
-for module in modules:
-    _logger.info("Install %s" % (module.name))
-    module.button_immediate_install()
+langs = env['res.lang'].search_read([('code', 'in', translations)], ['code', 'active'])
+for translation in translations:
+    for lang in langs:
+        if lang['code'] == translation:
+            if lang['active']:
+                _logger.info("\t- Translation %s already installed" % translation)
+            else:
+                _logger.info("\t- Install %s Translation" % translation)
+                wizard_id = env['base.language.install'].create([{'lang': translation}])
+                wizard_id.lang_install()
 
-_logger.info("--- Install modules ---")
+_logger.info("--- Translations installed ---")
