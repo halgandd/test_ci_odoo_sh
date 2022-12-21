@@ -25,6 +25,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - run: cat /github/workspace/.github/odoo_shell.py
+
       - run: ls -alstrh /github/
+#      - run: cat /github/workspace/.github/odoo_shell.py
 #      - run: ssh ${{ secrets.ODOOSH_INSTANCE_ID }}@${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
