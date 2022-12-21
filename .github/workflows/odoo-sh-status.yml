@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name }}
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: halgandd/odoo-sh-update-all@v1
+      - name: Update All
+        uses: halgandd/odoo-sh-update-all
         with:
-          who-to-greet: 'Mona the Octocat'
+          instance_name: ${{ secrets.ODOOSH_INSTANCE_NAME }}
+          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
 #  Odoo-SH-Update-All:
 #    runs-on: ubuntu-latest
