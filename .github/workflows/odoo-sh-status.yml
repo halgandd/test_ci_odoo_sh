@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: odoo-sh-update-all/hello-world-docker-action@v1
+        uses: halgandd/odoo-sh-update-all@v1
         with:
           who-to-greet: 'Mona the Octocat'
 
