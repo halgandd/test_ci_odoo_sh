@@ -6,7 +6,7 @@ translations = [
 langs = env['res.lang'].search_read([('code', 'in', translations)], ['code', 'active'])
 for translation in translations:
     for lang in langs:
-        if lang['code'] == translation:
+        if lang.code == translation:
             if lang['active']:
                 _logger.info("\t- Translation %s already installed" % translation)
             else:
