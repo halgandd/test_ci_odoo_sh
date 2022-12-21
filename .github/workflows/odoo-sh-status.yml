@@ -25,8 +25,9 @@ jobs:
       - run: mkdir -p ~/.ssh
       - run: ssh-keyscan -H ${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com >> ~/.ssh/known_hosts
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+      - run: echo "${{ secrets.SSH_PUBLIC_KEY }}" >> ~/.ssh/id_rsa.pub && chmod 600 ~/.ssh/id_rsa.pub
       - run: ls -alstrh /home/runner/.ssh/ ~/.ssh
-      - run: scp -i ~/.ssh/id_rsa.pub /home/runner/work/test_ci_odoo_sh/test_ci_odoo_sh/.github/odoo_shell.py \
+      - run: scp -i ~/.ssh/id_rsa /home/runner/work/test_ci_odoo_sh/test_ci_odoo_sh/.github/odoo_shell.py \
                 ${{ secrets.ODOOSH_INSTANCE_ID }}@${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com:/tmp/odoo_shell.py
       - run: ssh ${{ secrets.ODOOSH_INSTANCE_ID }}@${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com \
                   'cat /tmp/odoo_shell.py | odoo-bin shell --no-http'
