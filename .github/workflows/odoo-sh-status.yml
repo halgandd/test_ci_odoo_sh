@@ -18,7 +18,6 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   Odoo-SH-Update-All:
-    needs: Odoo-SH-Prepare-SSH
     runs-on: ubuntu-latest
     environment: ${GITHUB_REF##*/}
     steps:
