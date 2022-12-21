@@ -1,4 +1,4 @@
-name: Odoo.sh Get build status
+name: Odoo.sh Deploy
 on: [push]
 jobs:
 #  Demo:
@@ -29,6 +29,7 @@ jobs:
       - run: ssh ${{ secrets.ODOOSH_INSTANCE_ID }}@${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
 
   Odoo-SH-Install-Modules:
+    needs: Odoo-SH-Update-All
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name }}
     steps:
@@ -37,5 +38,5 @@ jobs:
       - run: mkdir -p ~/.ssh
       - run: ssh-keyscan -H ${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com >> ~/.ssh/known_hosts
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
-      - run: ls
+      - run: cat /github/.workspace/.github/odoo_shell.py
 #      - run: ssh ${{ secrets.ODOOSH_INSTANCE_ID }}@${{ secrets.ODOOSH_INSTANCE_NAME }}.dev.odoo.com 'odoo-bin -u all --i18n-overwrite --no-http --stop-after-init'
