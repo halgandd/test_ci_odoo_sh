@@ -22,8 +22,8 @@ jobs:
     environment: ${GITHUB_REF##*/}
     steps:
       #ssh-keygen -q -N "" -o -f ./github.private.key -t rsa -b 2048 -C "odoo@odoo.sh"
-      - run: echo '${GITHUB_REF##*/}'
-      - run: echo '${ODOOSH_INSTANCE_NAME}'
+      - run: echo '${{GITHUB_REF##*/}}'
+      - run: echo '${{ODOOSH_INSTANCE_NAME}}'
 #      - run: mkdir -p ~/.ssh
 #      - run: ssh-keyscan -H ${ODOOSH_INSTANCE_NAME}.dev.odoo.com >> ~/.ssh/known_hosts
 #      - run: echo "${{secrets.SSH_PRIVATE_KEY}}" >> ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
