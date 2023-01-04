@@ -6,7 +6,7 @@ jobs:
     environment: ${{ github.ref_name }}
     steps:
       - name: Wait Odoo.Sh restart instance
-        uses: halgandd/odoo-sh-wait-restart@51c38d48ce3be29f147556cf4f662523265d7591
+        uses: halgandd/odoo-sh-wait-restart@180bacc57dba10678c3d908b3772eb52241f4f03
         env:
           INSTANCE_NAME: '${{secrets.ODOOSH_INSTANCE_NAME}}'
           PRIVATE_KEY: '${{secrets.SSH_PRIVATE_KEY}}'
