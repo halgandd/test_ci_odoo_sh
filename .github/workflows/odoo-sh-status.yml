@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Odoo Shell Init
-        uses: halgandd/odoo-sh-shell@c0a3e89b47890ac7c7eb29ff04fb81b3cb27a9e9
+        uses: halgandd/odoo-sh-shell@a6180ef52d9375b677258146de008391fb9891f9
         with:
           script: .github/odoo_init.py
         env:
