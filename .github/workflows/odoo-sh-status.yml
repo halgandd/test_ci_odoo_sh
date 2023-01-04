@@ -5,17 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name }}
     steps:
-      - uses: webfactory/ssh-agent@v0.7.0
-        with:
-            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Update All
-        uses: halgandd/odoo-sh-update-all@1fc4ffd2862b805f1a1c0ba7098f328761c81f07
+        uses: halgandd/odoo-sh-update-all@092640bc84ad4dc156e4e85efae4b2e8d75cef07
         with:
           instance_name: ${{ secrets.ODOOSH_INSTANCE_NAME }}
           private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        env:
-          INSTANCE_NAME: ${{ secrets.ODOOSH_INSTANCE_NAME }}
-          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
 #  Odoo-SH-Update-All:
 #    runs-on: ubuntu-latest
