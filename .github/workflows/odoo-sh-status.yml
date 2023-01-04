@@ -14,9 +14,9 @@ jobs:
         with:
           fetch-depth: 1
       - name: Odoo Shell Init
-        uses: halgandd/odoo-sh-shell@cf8ea1addd591cde7e9e905933be7a9d95cdf8dd
+        uses: halgandd/odoo-sh-shell@df44e65c750e2065de797b5b965fda91baff55bf
         with:
-          script: odoo_init.py
+          script: .github/odoo_init.py
         env:
           INSTANCE_NAME: '${{secrets.ODOOSH_INSTANCE_NAME}}'
           PRIVATE_KEY: '${{secrets.SSH_PRIVATE_KEY}}'
