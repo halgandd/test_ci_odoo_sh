@@ -1,7 +1,18 @@
 name: Odoo.sh Deploy
 on: [push]
 jobs:
+  Odoo-SH-Wait-Restart:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name }}
+    steps:
+      - name: Wait Odoo.Sh restart instance
+        uses: halgandd/odoo-sh-wait-restart@ef35d1729d17774cf99f134a64222248f59b66c5
+        env:
+          INSTANCE_NAME: '${{secrets.ODOOSH_INSTANCE_NAME}}'
+          PRIVATE_KEY: '${{secrets.SSH_PRIVATE_KEY}}'
+
   Odoo-SH-Update-All:
+    needs: Odoo-SH-Wait-Restart
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name }}
     steps:
