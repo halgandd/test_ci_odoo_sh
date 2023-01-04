@@ -6,15 +6,13 @@ jobs:
     environment: ${{ github.ref_name }}
     steps:
       - name: Update All
-        uses: halgandd/odoo-sh-update-all@7127d3d620cccb3a9fd01e9f650c71eb0aa1d7f9
+        uses: halgandd/odoo-sh-update-all@6e0b22fe09a19ab50801665cde16255c34215dae
         with:
           instance_name: ${{secrets.ODOOSH_INSTANCE_NAME}}
           private_key: ${{secrets.SSH_PRIVATE_KEY}}
-          public_key: ${{secrets.SSH_PUBLIC_KEY}}
         env:
           INSTANCE_NAME: '${{secrets.ODOOSH_INSTANCE_NAME}}'
           PRIVATE_KEY: '${{secrets.SSH_PRIVATE_KEY}}'
-          PUBLIC_KEY: '${{secrets.SSH_PUBLIC_KEY}}'
 #  Odoo-SH-Update-All:
 #    runs-on: ubuntu-latest
 #    environment: ${{ github.ref_name }}
