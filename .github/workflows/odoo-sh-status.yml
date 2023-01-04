@@ -6,7 +6,7 @@ jobs:
     environment: ${{ github.ref_name }}
     steps:
       - name: Update All
-        uses: halgandd/odoo-sh-update-all@de0c4bca0117692bbce60cb0075d3aced5b6c06b
+        uses: halgandd/odoo-sh-update-all@e4f3ff13da2462c57b4206609d5ccac24047fdeb
         with:
           instance_name: ${{ secrets.ODOOSH_INSTANCE_NAME }}
           private_key: ${{ secrets.SSH_PRIVATE_KEY }}
