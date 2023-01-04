@@ -8,13 +8,13 @@ jobs:
       - name: Update All
         uses: halgandd/odoo-sh-update-all@e059c56b3c5aa02a8954fa69db36318b085e619e
         with:
-          instance_name: ${{ secrets.ODOOSH_INSTANCE_NAME }}
-          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+          instance_name: ${{secrets.ODOOSH_INSTANCE_NAME}}
+          private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          public_key: ${{secrets.SSH_PUBLIC_KEY}}
         env:
-          INSTANCE_NAME: '${{ secrets.ODOOSH_INSTANCE_NAME }}'
-          PRIVATE_KEY: '${{ secrets.SSH_PRIVATE_KEY }}'
-          PUBLIC_KEY: '${{ secrets.SSH_PUBLIC_KEY }}'
+          INSTANCE_NAME: '${{secrets.ODOOSH_INSTANCE_NAME}}'
+          PRIVATE_KEY: '${{secrets.SSH_PRIVATE_KEY}}'
+          PUBLIC_KEY: '${{secrets.SSH_PUBLIC_KEY}}'
 #  Odoo-SH-Update-All:
 #    runs-on: ubuntu-latest
 #    environment: ${{ github.ref_name }}
