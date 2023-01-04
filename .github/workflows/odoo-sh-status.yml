@@ -6,7 +6,7 @@ jobs:
     environment: ${{ github.ref_name }}
     steps:
       - name: Update All
-        uses: halgandd/odoo-sh-update-all@6e0b22fe09a19ab50801665cde16255c34215dae
+        uses: halgandd/odoo-sh-update-all@38f6fb55d6ccc0c4c243094fce5034519edcf356
         env:
           INSTANCE_NAME: '${{secrets.ODOOSH_INSTANCE_NAME}}'
           PRIVATE_KEY: '${{secrets.SSH_PRIVATE_KEY}}'
@@ -20,14 +20,14 @@ jobs:
         with:
           fetch-depth: 1
       - name: Odoo Shell Init
-        uses: halgandd/odoo-sh-shell@a1beededfa23d164686e4340ad966e8b63b23b1c
+        uses: halgandd/odoo-sh-shell@bad811b80da7d68d331fcd69151497004079078d
         with:
           script: .github/odoo_init.py
         env:
           INSTANCE_NAME: '${{secrets.ODOOSH_INSTANCE_NAME}}'
           PRIVATE_KEY: '${{secrets.SSH_PRIVATE_KEY}}'
       - name: Odoo Shell Install
-        uses: halgandd/odoo-sh-shell@a1beededfa23d164686e4340ad966e8b63b23b1c
+        uses: halgandd/odoo-sh-shell@bad811b80da7d68d331fcd69151497004079078d
         with:
           script: .github/odoo_install.py
         env:
