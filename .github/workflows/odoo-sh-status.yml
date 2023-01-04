@@ -9,7 +9,7 @@ jobs:
         with:
             ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Update All
-        uses: halgandd/odoo-sh-update-all@b6fbaef5ebcb57b60f53f726b38935345828800b
+        uses: halgandd/odoo-sh-update-all@1fc4ffd2862b805f1a1c0ba7098f328761c81f07
         with:
           instance_name: ${{ secrets.ODOOSH_INSTANCE_NAME }}
           private_key: ${{ secrets.SSH_PRIVATE_KEY }}
