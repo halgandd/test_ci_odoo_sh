@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name }}
     steps:
+      - uses: webfactory/ssh-agent@v0.7.0
+        with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Update All
         uses: halgandd/odoo-sh-update-all@b6fbaef5ebcb57b60f53f726b38935345828800b
         with:
