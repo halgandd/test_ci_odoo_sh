@@ -8,9 +8,9 @@ jobs:
       - name: Update All
         uses: halgandd/odoo-sh-update-all@0de51a7bb739523a85ee3a621657f0942a60f549
         with:
-          instance_name: ${{ secrets.ODOOSH_INSTANCE_NAME }}
-          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+          INSTANCE_NAME: ${{ secrets.ODOOSH_INSTANCE_NAME }}
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
 
 #        env:
 #          instance_name: ${{ secrets.ODOOSH_INSTANCE_NAME }}
